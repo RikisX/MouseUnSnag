@@ -27,7 +27,7 @@ namespace MouseUnSnag
             {
                 Icon = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath),
                 ContextMenu = new ContextMenu(MakeMenuItems(options).ToArray()),
-                Visible = false
+                Visible = options.Tray
             };
         }
 
@@ -45,7 +45,7 @@ namespace MouseUnSnag
 
             return new[]
             {
-                new MenuItem("UnStick from corners", (sender, _) =>
+                new MenuItem("Unstick from corners", (sender, _) =>
                 {
                     var item = (MenuItem) sender;
                     options.Unstick = !options.Unstick;
@@ -75,6 +75,16 @@ namespace MouseUnSnag
                     Checked = options.Wrap
                 },
 
+                new MenuItem("Show SysTray icon", (sender, _) =>
+                {
+                    var item = (MenuItem) sender;
+                    options.Tray = !options.Tray;
+                    item.Checked = options.Tray;
+                })
+                {
+                    Checked = options.Wrap
+                },
+				
                 new MenuItem("Exit", delegate
                 {
                     _trayIcon.Visible = false;
