@@ -36,6 +36,7 @@ namespace MouseUnSnag.Configuration
             opts.Add(("Wrap   ", options.Wrap));
             opts.Add(("Jump   ", options.Jump));
             opts.Add(("Unstick", options.Unstick));
+			opts.Add(("Tray   ", options.Tray));
 
             var lines = opts.Select(x => $"{x.name} {FieldSeparator} {x.value}");
             return string.Join(OptionSeperator, lines);
@@ -74,6 +75,9 @@ namespace MouseUnSnag.Configuration
                         case "UNSTICK":
                             options.Unstick = bool.Parse(optionValue);
                             break;
+                        case "TRAY":
+                            options.Tray = bool.Parse(optionValue);
+                            break;							
                         default:
                             Debug.WriteLine($"Could not recognize {optionName} as an option");
                             break;

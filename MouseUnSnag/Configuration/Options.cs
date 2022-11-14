@@ -5,9 +5,10 @@ namespace MouseUnSnag.Configuration
     public class Options
     {
         private bool _unstick = true;
-        private bool _jump = true;
+        private bool _jump = true;	
         private bool _wrap = true;
-
+        private bool _tray = true;	
+		
         public bool Unstick
         {
             get => _unstick;
@@ -45,7 +46,19 @@ namespace MouseUnSnag.Configuration
             }
         }
 
-
+        public bool Tray
+        {
+            get => _tray;
+            set
+            {
+                if (_tray == value)
+                    return;
+                
+                _tray = value;
+                OnConfigChanged();
+            }
+        }
+		
         public event EventHandler ConfigChanged;
         protected virtual void OnConfigChanged()
         {
