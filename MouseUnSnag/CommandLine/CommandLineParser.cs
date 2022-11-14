@@ -35,6 +35,9 @@ namespace MouseUnSnag.CommandLine
                     case 'W':
                         options.Wrap = flagValue;
                         break;
+                    case 'T':
+                        options.Tray = flagValue;
+                        break;						
                     default:
                         DisplayUsageAndExit($"Invalid Argument: {arg}");
                         break;
@@ -79,7 +82,8 @@ namespace MouseUnSnag.CommandLine
             lines.Add("\t+w    Enables mouse wrapping. Default.");
             lines.Add("\t-r    Disables mouse scaling. Default.");
             lines.Add("\t+r    Enables mouse scaling. Experimental");
-
+            lines.Add("\t-t    Disables systray.");
+            lines.Add("\t+t    Enables systray. Default.");
 
             // FIXME: this is not a great way to handle errors.
             // Console.WriteLine(string.Join(Environment.NewLine, lines));
