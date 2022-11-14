@@ -45,7 +45,7 @@ namespace MouseUnSnag
 
             return new[]
             {
-                new MenuItem("UnStick from corners", (sender, _) =>
+                new MenuItem("Unstick from corners", (sender, _) =>
                 {
                     var item = (MenuItem) sender;
                     options.Unstick = !options.Unstick;
