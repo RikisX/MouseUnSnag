@@ -27,7 +27,7 @@ namespace MouseUnSnag
             {
                 Icon = System.Drawing.Icon.ExtractAssociatedIcon(Application.ExecutablePath),
                 ContextMenu = new ContextMenu(MakeMenuItems(options).ToArray()),
-                Visible = true
+                Visible = false
             };
         }
 
@@ -45,7 +45,7 @@ namespace MouseUnSnag
 
             return new[]
             {
-                new MenuItem("Unstick from corners", (sender, _) =>
+                new MenuItem("UnStick from corners", (sender, _) =>
                 {
                     var item = (MenuItem) sender;
                     options.Unstick = !options.Unstick;
